@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCPoliziaMunicipale.Models.VerbaliPerTrasgressori>
+
+@{
+    ViewBag.Title = "TotVerbaliTrasgressori";
+}
+
+<h2>Verbali Registrati</h2>
+<hr />
+<div class="d-flex mb-3 justify-content-between">
+    @Html.ActionLink("Lista Punti Decurtati", "TotPuntiDecurtatiTrasgressori", "verbale")
+    @Html.ActionLink("-10 Punti Decurtati", "Over10Punti", "Verbale")
+    @Html.ActionLink("+€400 Verbali", "Over400Euro", "Verbale")
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTrasgressore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotaleVerbali)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTrasgressore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotaleVerbali)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+}
+
+</table>
